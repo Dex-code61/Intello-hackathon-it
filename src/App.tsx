@@ -1,6 +1,7 @@
 import { BackgroundLines } from "./components/ui/background-lines";
 import Hero from "./components/ux/hero";
 import NavBar from "./components/ux/nav-bar";
+import UserForm from "./components/ux/user-form";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <BackgroundLines className="flex items-center justify-center w-full h-full bg-transparent flex-col px-4">
           <Hero />
         </BackgroundLines>
+        <UserForm />
       </div>
     </div>
   );

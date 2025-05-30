@@ -1,18 +1,29 @@
 import type { LucideProps } from "lucide-react";
 import { create } from "zustand";
 
-interface Social {
+export interface Social {
   name: string;
   link: string;
-  icon: React.ForwardRefExoticComponent<
+  icon?: React.ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
 }
-interface ProfileType {
+export interface Competence {
+  name: string;
+  icon?: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
+  date: string;
+}
+export interface ProfileType {
   username: string | null;
   avatar: string | null;
   bio: string | null;
   socials: Social[] | [];
+  competences: Competence[] | [];
+  setBio: (bio: string) => void;
+  setSocials: (socials: Social[]) => void;
+  setCompetences: (competences: Competence[]) => void;
   setUsername: (username: string) => void;
   setAvatar: (avatar: string) => void;
   setAllInfo: (
@@ -34,6 +45,10 @@ export const useProfile = create<ProfileType>()((set) => ({
   avatar: "",
   socials: [],
   bio: "",
+  competences: [],
+  setBio: (bio: string) => set(() => ({ bio })),
+  setSocials: (socials: Social[]) => set(() => ({ socials: [...socials] })),
+  setCompetences: (competences: Competence[]) => set(() => ({ competences })),
   setUsername: (username: string) => set(() => ({ username })),
   setAvatar: (avatar: string) => set(() => ({ avatar })),
   setAllInfo: (username, avatar, bio, socials) =>
