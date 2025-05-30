@@ -4,7 +4,7 @@ import UserAvatar from "./user-avatar";
 
 const NavBar = () => {
   return (
-    <div className="w-full py-3 flex items-center justify-between">
+    <div className="w-full py-3 z-[5] flex items-center justify-between">
       <UserAvatar />
       {/* <ModeToggle /> */}
       <Socials />
